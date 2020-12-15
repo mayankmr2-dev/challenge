@@ -19,7 +19,10 @@ class HashMap:
 
     def __getitem__(self, key):
         h = self.get_hash(key)
-        print(self.arr[h])
+        if self.arr[h] == None:
+            print("NOT FOUND!")
+        else:
+            print(self.arr[h])
 
     def __delitem__(self, key):
         h = self.get_hash(key)
@@ -36,9 +39,12 @@ if __name__ == "__main__":
     h1["march 6"]
     h1["march 23"] = 112.0
     h1["January 27"] = 234.0
+    h1["march 7"] = 435.0
+    print(h1.get_hash("march 7"))
     print(h1)
     del h1["march 6"]
     print(h1)
+    h1['may 12']
 
 
 '''
