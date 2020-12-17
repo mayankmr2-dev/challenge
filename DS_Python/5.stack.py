@@ -2,6 +2,7 @@
 # Last IN First OUT
 
 # Eg. Visiting Websites, stack of plates, elevator
+# Methods include - push , pop , peek , is_empty, size
 
 from collections import deque
 
@@ -26,6 +27,9 @@ class Stack:
     def size(self):
         print(len(self.container))
 
+    def __str__(self):
+        return(str(self.container))
+
 
 if __name__ == "__main__":
     n1 = Stack()
@@ -37,7 +41,7 @@ if __name__ == "__main__":
     n1.pop()
     n1.size()
     n1.is_empty()
-    print(n1.container)
+    print(n1)
 
 
 '''
