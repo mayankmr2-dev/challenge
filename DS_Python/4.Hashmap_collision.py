@@ -79,3 +79,12 @@ NOT FOUND !
 [[('march 7', 257), ('march 27', 245)], [], [], [('may 6', 65)], [], [], [('march 14', 45)], [], [], [('march 6', 235), ('march 26', 234)]]
 
 '''
+'''
+
+    def __getitem__(self, key):
+        h = self.get_hash(key)  # 6 int
+        for i in self.arr[h]:
+            if i[0] == key:
+                print(i[1])
+
+'''
