@@ -12,3 +12,6 @@ def fib(n):
     for j in range(n):
         yield a, b
         a, b = c,
+
+
+print(fib(4))
