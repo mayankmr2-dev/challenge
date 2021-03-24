@@ -12,7 +12,7 @@ class TreeNode:
         self.children.append(child)
 
     def chil(self):
-        if self.children is None:
+        if len(self.children) == 0:
             return None
         else:
             final = []
