@@ -1,35 +1,32 @@
-# Reverse an array
+# Given an array of size N containing only 0s, 1s, and 2s
+# sort the array in ascending order.
+# DUTCH FLAG PROBLEM = O(n)
+# 0 0 0 1 1 1 2 2 2  -- keep the pointer at the middle ie. 1
+# N = 5
+# arr[]= {0 2 1 2 0}
+# Output:
+# 0 0 1 2 2
 
 
-# 1. Slicing
-list1 = [4, 5, 1, 2]
-list2 = [18, 6, 2, 34, 12, 33, 20]
-list3 = [12, 33, 4, 3, 4]
-# print(list1[::-1])
-
-# 2. reversed function
-# print(list(reversed(list1)))
-# for i in reversed(list1):
-#     print(i)
-
-
-# gfg
-# def reverseList(A, start, end):
-#     while start < end:
-#         A[start], A[end] = A[end], A[start]
-#         start += 1
-#         end -= 1
-#     return A
+def sorting(arr):
+    m = l = 0
+    n = len(arr)
+    h = n - 1
+    while m <= h:
+        if arr[m] == 0:
+            arr[l], arr[m] = arr[m], arr[l]
+            m += 1
+            l += 1
+        elif arr[m] == 1:
+            m += 1
+        else:
+            arr[m], arr[h] = arr[h], arr[m]
+            h -= 1
+    return arr
 
 
-def reverseList(list1):
-    i = 0
-    while i < len(list1)//2:
-        list1[i], list1[len(list1)-(i+1)] = list1[len(list1)-(i+1)], list1[i]
-        i += 1
-    return list1
-
-
-print(reverseList(list1))
-print(reverseList(list2))
-print(reverseList(list3))
+if __name__ == "__main__":
+    arr1 = [0, 1, 2, 0, 1, 2]
+    arr = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1]
+    print(sorting(arr1))
+    print(sorting(arr))
