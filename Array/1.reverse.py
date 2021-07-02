@@ -21,6 +21,12 @@ list3 = [12, 33, 4, 3, 4]
 #         end -= 1
 #     return A
 
+# def solution(arr):
+#     length = len(arr)
+#     for i in range(len(arr)//2):
+#         arr[i], arr[length-1-i] = arr[length-1-i], arr[i]
+#     return arr
+
 
 def reverseList(list1):
     i = 0
@@ -28,6 +34,8 @@ def reverseList(list1):
         list1[i], list1[len(list1)-(i+1)] = list1[len(list1)-(i+1)], list1[i]
         i += 1
     return list1
+
+# We did not go till the middle element bcoz it is not going to change hence i<xyz and not i<=xyz
 
 
 print(reverseList(list1))
