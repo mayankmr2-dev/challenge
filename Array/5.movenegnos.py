@@ -2,7 +2,7 @@
 # Input: -12, 11, -13, -5, 6, -7, 5, -3, -6
 # Output: -12 -13 -5 -7 -3 -6 11 6 5
 
-# Time Complexity - O(n)
+# Time Complexity - O(2n)
 # Space Complexity - O(n)
 
 array1 = [-12, 11, -13, -5, 6, -7, 5, -3, -6]
@@ -11,21 +11,15 @@ array1 = [-12, 11, -13, -5, 6, -7, 5, -3, -6]
 def solution(arr):
     if len(arr) <= 1:
         return arr
-
-    pivot = 0
-
-    negative = []
-    positive = []
-
+    neg = []
+    pos = []
     for item in arr:
-
-        if item > pivot:
-            positive.append(item)
+        if item < 0:
+            neg.append(item)
         else:
-            negative.append(item)
-
-    negative.extend(positive)
-    return negative
+            pos.append(item)
+    neg.extend(pos)
+    return neg
 
 # Optimized solution
 
@@ -34,17 +28,40 @@ def solution(arr):
 
 
 def solution2(arr):
-    j = 0
-    for i in range(len(arr)):
-        if arr[i] < 0:
-            arr[i], arr[j] = arr[j], arr[i]
-            j += 1
+    low = 0
+    mid = 0
+
+    for mid in range(len(arr)):
+        if arr[mid] < 0:
+            arr[low], arr[mid] = arr[mid], arr[low]
+            low += 1
+            mid += 1
+        else:
+            mid += 1
     return arr
 
+
+# Two pointer approach
+# left, right
+# take neg and 0s as one
+
+def solution(arr):
+    left = 0
+    right = len(arr)-1
+    while left <= right:
+        if arr[left] <= 0:
+            left += 1
+        elif (arr[left] > 0 and arr[right] <= 0):
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+        elif (arr[left] > 0 and arr[right] > 0):
+            right -= 1
+    return arr
 
 # Worst case - using quicksort
 # Time Complexity - O(nlogn)
 # Space Complexity - O(n)
+
 
 def solution3(arr):
     if len(arr) <= 1:
@@ -64,4 +81,4 @@ def solution3(arr):
 
 
 if __name__ == "__main__":
-    print(solution(array1))
+    print(solution3(array1))

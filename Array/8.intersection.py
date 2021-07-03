@@ -15,3 +15,35 @@ def Solution(a, b):
 print(Solution([1, 3, 4, 5, 7], [2, 3, 5, 6]))
 
 # Output - {3, 5}
+
+arr4 = [1, 3, 3, 4, 5, 7]
+arr5 = [2, 3, 3, 5, 6]
+
+
+# Time Complexity = O(n+m)
+
+def solution(ar1, ar2):
+    low = 0
+    med = 0
+    final = []
+    while low < len(ar1) and med < len(ar2):
+        if ar1[low] < ar2[med]:
+            low += 1
+        elif ar2[med] < ar1[low]:
+            med += 1
+        else:  # in case both no.s are equal
+            final.append(ar1[low])
+            low += 1
+            med += 1
+
+    # This step is required when longer list is remaining and the other list is over
+    while low < len(ar1):
+        low += 1
+
+    while med < len(ar2):
+        med += 1
+
+    return final
+
+
+# Output - [3, 3, 5]

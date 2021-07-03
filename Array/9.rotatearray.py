@@ -10,13 +10,24 @@ array1 = [38, 9, 9, 29, 7, 2, 15, 28]
 
 
 def rotate(arr, n):
-    x = arr[n - 1]  # 7  - 28
+    # put the last item in a variable
+    final = len(arr)-1
 
-    for i in range(n - 1, 0, -1):
-        arr[i] = arr[i - 1]
+    # run a for loop backwards from the second last item till the first
+    for i in range(final-1, 0, -1):
+        arr[i] = arr[i-1]
 
-    arr[0] = x
+    # finally set the first item with the last item
+    arr[0] = final
     return arr
+
+
+# Time complexity = O(n)
+
+# def solution(arr):
+#     last = arr.pop()
+#     arr.insert(0, last)
+#     return arr
 
 
 print(rotate(array1, len(array1)))
