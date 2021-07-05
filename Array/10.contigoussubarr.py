@@ -11,15 +11,22 @@ arr7 = [1, -1, -2, -3, -4, -5]
 def solution(arr):
     currentSum = 0
     maxSum = 0
+    start_index = 0
+    end_index = 0
+    s = 0
+
     for i in range(len(arr)):
         currentSum += arr[i]
         if currentSum > maxSum:
             maxSum = currentSum
+            start_index = s
+            end_index = i
         elif currentSum < 0:
             currentSum = 0
+            s += 1
         else:
             pass
-    return maxSum
+    return maxSum, start_index, end_index
 
 
 print(solution(arr5))  # 6
