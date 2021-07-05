@@ -27,6 +27,9 @@ list3 = [12, 33, 4, 3, 4]
 #         arr[i], arr[length-1-i] = arr[length-1-i], arr[i]
 #     return arr
 
+# while i+=1  while i<len(arr)//2
+
+# Time Complxity = O(n)
 
 def reverseList(list1):
     i = 0
@@ -36,6 +39,16 @@ def reverseList(list1):
     return list1
 
 # We did not go till the middle element bcoz it is not going to change hence i<xyz and not i<=xyz
+
+#
+# def solution(arr):
+#     i = 0
+#     j = len(arr)-1
+#
+#     while i < len(arr)//2:
+#         arr[i], arr[j-i] = arr[j-i], arr[i]
+#         i += 1
+#     return arr
 
 
 print(reverseList(list1))
