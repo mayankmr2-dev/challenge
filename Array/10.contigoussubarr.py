@@ -24,11 +24,42 @@ def solution(arr):
         elif currentSum < 0:
             currentSum = 0
             s += 1
-        else:
-            pass
     return maxSum, start_index, end_index
+
+
+arneg = [-1, -12, 0, -100]
+
+
+def solution1(arr):
+    currentSum = 0
+    maxSum = 0
+    for i in arr:
+        currentSum += i
+        currentSum = max(i, currentSum)
+        maxSum = max(currentSum, maxSum)
+    return maxSum
+
+
+def solutionkk(arr):
+    currentSum = 0
+    maxSum = 0
+    i = 0
+    while i < len(arr):
+        currentSum += arr[i]
+        if currentSum <= 0:
+            currentSum = 0
+            i += 1
+
+        else:
+            if currentSum > maxSum:
+                maxSum = currentSum
+                i += 1
+            else:
+                i += 1
+    return maxSum
 
 
 print(solution(arr5))  # 6
 print(solution(arr6))  # 7
-print(solution(arr7))
+print(solution1(arr7))  # 1
+print(solution1(arneg))  # 0

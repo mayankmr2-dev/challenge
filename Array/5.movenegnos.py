@@ -26,11 +26,14 @@ def solution(arr):
 # Time Complexity - O(n)
 # Space Complexity - O(1)
 
+# low mid first half of dutch flag
+
 
 def solution2(arr):
     low = 0
     mid = 0
 
+    # while mid < len(arr)
     for mid in range(len(arr)):
         if arr[mid] < 0:
             arr[low], arr[mid] = arr[mid], arr[low]
@@ -45,16 +48,16 @@ def solution2(arr):
 # left, right
 # take neg and 0s as one
 
+# mid high second half of dutch flag
+
 def solution(arr):
     left = 0
     right = len(arr)-1
     while left <= right:
-        if arr[left] <= 0:
+        if arr[left] < 0:
             left += 1
-        elif (arr[left] > 0 and arr[right] <= 0):
+        else:
             arr[left], arr[right] = arr[right], arr[left]
-            left += 1
-        elif (arr[left] > 0 and arr[right] > 0):
             right -= 1
     return arr
 

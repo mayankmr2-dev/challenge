@@ -65,3 +65,27 @@ def solution(ar1, ar2):
             pass
     return new
 # print(solution(arr1, arr2))
+
+
+def solutionkk(arr1, arr2):
+    upperptr = 0
+    lowerptr = 0
+    result = []
+    while upperptr < len(arr1) and lowerptr < len(arr2):
+        if arr1[upperptr] < arr2[lowerptr]:
+            # result.append(arr1[upperptr])
+            upperptr += 1
+        elif arr2[lowerptr] < arr1[upperptr]:
+            # result.append(arr2[lowerptr])
+            lowerptr += 1
+        elif arr2[lowerptr] == arr1[upperptr]:
+            result.append(arr2[lowerptr])
+            lowerptr += 1
+            upperptr += 1
+    while upperptr < len(arr1):
+        # result.append(arr1[upperptr])
+        upperptr += 1
+    while lowerptr < len(arr2):
+        # result.append(arr2[lowerptr])
+        lowerptr += 1
+    return len(result), result
