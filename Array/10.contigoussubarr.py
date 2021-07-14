@@ -44,22 +44,28 @@ def solutionkk(arr):
     currentSum = 0
     maxSum = 0
     i = 0
+    start_index = 0
+    end_index = 0
+    s = 0
     while i < len(arr):
         currentSum += arr[i]
         if currentSum <= 0:
             currentSum = 0
             i += 1
+            s += 1
 
         else:
             if currentSum > maxSum:
                 maxSum = currentSum
+                start_index = s
+                end_index = i
                 i += 1
             else:
                 i += 1
-    return maxSum
+    return maxSum, (start_index, end_index)
 
 
-print(solution(arr5))  # 6
-print(solution(arr6))  # 7
+print(solution(arr5))  # 6 (6, 1, 3)
+print(solution(arr6))  # 7 (7, 2, 6)
 print(solution1(arr7))  # 1
 print(solution1(arneg))  # 0

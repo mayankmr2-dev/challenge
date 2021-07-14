@@ -1,54 +1,27 @@
-
-arr1 = [10, 0, 9, 8, 2, 7, 5]
-arr2 = [5, 6, 7, 8, 9, 8, 7, 6, -1, 5, 6, 7, 8, 9, 0]
-
-a1 = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1]
-a2 = [0, 1, 2, 0, 1, 2]
-
-ar1 = [-12, 11, -13, -5, 6, -7, 5, -3, -6]
-ar2 = [-1, -2, 0, 1, 3, -100, 2, 0, -4, 5]
-
-arr4 = [1, 3, 3, 4, 5, 7]
-arrt = [1, 2, 3, 0, 0, -100, -120, 4, 5]
-arneg = [-1, -12, 0, -100]
-
-# [0-low-1] [high+1-last]
-ark1 = [1, 2, 4, 5, 6]
-ark2 = [2, 3, 5, 7]
-
-arr6 = [-2, -3, 4, -1, -2, 1, 5, -3]
-arr7 = [1, -1, -2, -3, -4, -5]
-arr5 = [5, -4, -2, 6, -1]
-arneg = [-1, -12, 0, -100]
-
-# lastindex = 7
+arr1 = [1, 4, 3, 7, 1, 2, 6, 7, 6, 10]
+arr2 = [2, 3, 1, 1, 4]
+arr3 = [1, 1, 1, 1, 1]
 
 
-def solution(arr):
-    currentSum = 0
-    maxSum = 0
-    i = 0
-    start_index = 0
-    end_index = 0
-    while i < len(arr):
-        currentSum += arr[i]
-        if currentSum <= 0:
-            currentSum = 0
-            i += 1
+def solution(arr, start, end):
+    if (start == end):
+        return 0
 
-        else:
-            if currentSum > maxSum:
-                maxSum = currentSum
-                start_index = i
-                i += 1
-            else:
-                i += 1
-    return maxSum
+    if arr[start] == 0:
+        return float('inf')
+
+    minJumps = float('inf')
+
+    for k in range(start+1, end+1):
+        if (k <= start + arr[start]):
+            jumps = solution(arr, k, end)
+
+        if (jumps != minJumps and jumps+1 < minJumps):
+            minJumps = jumps+1
+
+    return minJumps
 
 
-if __name__ == '__main__':
-    print("this is a test")
-    print(solution(arr6))
-    print(solution(arr5))
-    print(solution(arr7))
-    print(solution(arneg))
+print(solution(arr2, 0, 4))
+# print(solution(arr1, 0, 9))
+# print(solution(arr3, 0, 4))
