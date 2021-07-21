@@ -1,27 +1,24 @@
-arr1 = [1, 4, 3, 7, 1, 2, 6, 7, 6, 10]
-arr2 = [2, 3, 1, 1, 4]
-arr3 = [1, 1, 1, 1, 1]
+# Input:  arr[] = {1, 2, 3, 4, 5}
+# Output: arr[] = {5, 1, 2, 3, 4}
 
 
-def solution(arr, start, end):
-    if (start == end):
-        return 0
-
-    if arr[start] == 0:
-        return float('inf')
-
-    minJumps = float('inf')
-
-    for k in range(start+1, end+1):
-        if (k <= start + arr[start]):
-            jumps = solution(arr, k, end)
-
-        if (jumps != minJumps and jumps+1 < minJumps):
-            minJumps = jumps+1
-
-    return minJumps
+ar1 = [-2, -3, 4, -1, -2, 1, 5, -3]
 
 
-print(solution(arr2, 0, 4))
-# print(solution(arr1, 0, 9))
-# print(solution(arr3, 0, 4))
+def solution(arr):
+    n = len(arr)
+    maxsize = 0
+    maxrun = 0
+    total = 0
+    i = 0
+    while i < n:
+        total += arr[i]
+        if total < 0:
+            total = 0
+        maxrun = max(total, arr[i])
+        maxsize = max(maxsize, maxrun)
+        i += 1
+    return maxsize
+
+
+print(solution(ar1))

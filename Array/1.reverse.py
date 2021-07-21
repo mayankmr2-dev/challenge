@@ -22,10 +22,11 @@ list3 = [12, 33, 4, 3, 4]
 #     return A
 
 # def solution(arr):
-#     length = len(arr)
-#     for i in range(len(arr)//2):
-#         arr[i], arr[length-1-i] = arr[length-1-i], arr[i]
-#     return arr
+    # length = len(arr)
+    # last = len(arr) - 1
+    # for i in range(length//2):
+    #     arr[i], arr[last-i] = arr[last-i], arr[i]
+    # return arr
 
 # while i+=1  while i<len(arr)//2
 
@@ -38,7 +39,8 @@ def reverseList(list1):
         i += 1
     return list1
 
-# We did not go till the middle element bcoz it is not going to change hence i<xyz and not i<=xyz
+# We did not go till the middle element bcoz it is not going
+# to change hence i < xyz and not i<=xyz
 
 #
 # def solution(arr):

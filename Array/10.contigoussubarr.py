@@ -64,6 +64,21 @@ def solutionkk(arr):
                 i += 1
     return maxSum, (start_index, end_index)
 
+# def solution(arr):
+#     n = len(arr)
+#     maxsize = 0
+#     maxrun = 0
+#     total = 0
+#     i = 0
+#     while i < n:
+#         total += arr[i]
+#         if total < 0:
+#             total = 0
+#         maxrun = max(total, arr[i])
+#         maxsize = max(maxsize, maxrun)
+#         i += 1
+#     return maxsize
+
 
 print(solution(arr5))  # 6 (6, 1, 3)
 print(solution(arr6))  # 7 (7, 2, 6)
