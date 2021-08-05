@@ -27,7 +27,7 @@ def solution(arr):
                 prev = i
 
         arr[idx-1], arr[prev] = arr[prev], arr[idx-1]
-        arr[idx:n] = sorted(arr[idx:n])
+        arr[idx:] = sorted(arr[idx:])
 
     return arr
 
