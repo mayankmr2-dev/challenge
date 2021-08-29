@@ -7,7 +7,7 @@
 # arr[]= {0 2 1 2 0}
 # Output:
 # 0 0 1 2 2
-
+# It should run till mid and high point are together at one point
 
 def sorting(arr):
     mid = 0

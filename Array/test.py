@@ -3,19 +3,14 @@ arr1 = [1, 5, 7, 1]
 
 
 def solution(arr, k):
-    n = len(arr)
     pairs = 0
-    left = 0
-    right = 1
-    sum = 0
-    while right < n:
-        sum += (arr[left] + arr[right])
-        if sum == k:
-            pairs += 1
-            sum -= arr[left]
-            left = right
-        right += 1
-    return pairs
+    list_pairs = []
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i]+arr[j] == k:
+                list_pairs.append((arr[i], arr[j]))
+                pairs += 1
+    return pairs, list_pairs
 
 
 if __name__ == '__main__':

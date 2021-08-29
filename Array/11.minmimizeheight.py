@@ -1,5 +1,5 @@
 # Minimize the maximum difference between heights
-
+# Array has to be sorted before any operation
 ar = [1, 10, 14, 14, 14, 15]
 k = 6
 
@@ -30,7 +30,6 @@ def solution(arr, k):
     return ans
 
 
-# print(solution(ar, k))
-# print(solution(ar2, 3))
-print(solution(ar3, 6))
-# print(min(22, 12))
+print(solution(ar, k))  # 5
+print(solution(ar2, 3))  # 11
+print(solution(ar3, 6))  # 5
